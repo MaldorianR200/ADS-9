@@ -6,23 +6,23 @@
 #include  "bst.h"
 
 BST<std::string> makeTree(const char* filename) {
-  BST<std::string> TREE;
-  std::ifstream file(filename);
-	if (!file.is_open())
-		throw std::string("The file don't open!!!");
-	std::string line, w;
-  while (std::getline(file, line)) {
-    std::stringstream ss(line);
-    while (ss >> w) {
-      for (char& c : w) {
-        c = std::tolower(c); // понижение в регистре
-        if (!std::isalpha(c)) { // проверка на алфавит
-          w = w.substr(0, w.size() - 1);
-				}
-			}
-			TREE.addNode(w);
-		}
-	}
-	file.close();
-	return TREE;
+    BST<std::string> TREE;
+    std::ifstream file(filename);
+    std::string w;
+    while (!file.eof()) {
+        int ch = file.get();
+        if (ch >= 65 && ch <= 90) {
+            ch += 32;
+            w += ch;
+        }
+        else if (ch >= 97 && ch <= 122) {
+            w += ch;
+        }
+        else {
+            TREE.addNode(w);
+            w = "";
+        }
+    }
+    file.close();
+    return TREE;
 }
