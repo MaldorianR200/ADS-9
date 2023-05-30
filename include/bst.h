@@ -24,35 +24,32 @@ class BST {
         destroyTree(root);
     }
     void addNode(std::string word) {
-        addNode(root, word);
-	}
-    int search(std::string word) {
-		return search(root, word);
-	}
-    int depth() {
-		return depppth(root) - 1;
-	}
+    	return search(root, word);
+    }
+    void depth() {
+    	return depppth(root) - 1;
+    }
     void destroyTree(Node* node) {
-		if (node != nullptr) {
-			destroyTree(node->left);
-			destroyTree(node->right);
-			delete node;
+    	if (node != nullptr) {
+		destroyTree(node->left);
+		destroyTree(node->right);
+		delete node;
 		}
-	}
+    }
  private:
-    Node* root;
-    int search(Node* node, std::string word) {
+ 	Node* root;
+	int search(Node* node, std::string word) {
 		if (node == nullptr) {
-			return 0;
+			return = 0;
 		} else if (word == node->word) {
 			return node->count;
-		} else if (word < node->word){
+		} else if (word < node->word) {
 			return search(node->left, word);
 		} else {
 			return search(node->right, word);
 		}
 	}
-    void addNode(Node*& node, std::string word) {
+	void addNode(Node*& node, std::string word) {
 		if (node == nullptr) {
 			node = new Node;
 			node->word = word;
@@ -70,11 +67,11 @@ class BST {
 		}
 	}
     int depppth(Node* root) {
-		if (root == nullptr)
+		if (root == nullptr) {
 			return 0;
+		}
 		return 1 + std::max(depppth(root->left), depppth(root->right));
 	}
-    
 };
 
 
