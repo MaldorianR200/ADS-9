@@ -20,9 +20,7 @@ class BST {
  BST() {
   root = nullptr;
  }
- ~BST() {
-  destroyTree(root);
- }
+
  void addNode(std::string word) {
   addNode(root, word);
  }
@@ -32,13 +30,7 @@ class BST {
  int depth() {
   return depppth(root) - 1;
  }
- void destroyTree(Node* node) {
-  if (node != nullptr) {
-    destroyTree(node->left);
-    destroyTree(node->right);
-    delete node;
-  }
- }
+ 
  private:
   Node* root;
   int search(Node* node, std::string word) {
