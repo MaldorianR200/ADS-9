@@ -14,11 +14,9 @@ BST<std::string> makeTree(const char* filename) {
         if (ch >= 65 && ch <= 90) {
             ch += 32;
             w += ch;
-        }
-        else if (ch >= 97 && ch <= 122) {
+        } else if (ch >= 97 && ch <= 122) {
             w += ch;
-        }
-        else {
+        } else {
             TREE.addNode(w);
             w = "";
         }
