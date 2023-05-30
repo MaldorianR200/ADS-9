@@ -16,7 +16,7 @@ class BST {
         int count;
         Node* left;
         Node* right;
-    }:
+    };
     BST() {
         root = nullptr;
     }
@@ -39,38 +39,38 @@ class BST {
  private:
  	Node* root;
 	int search(Node* node, std::string word) {
-		if (node == nullptr) {
-			return = 0;
-		} else if (word == node->word) {
-			return node->count;
-		} else if (word < node->word) {
-			return search(node->left, word);
-		} else {
-			return search(node->right, word);
-		}
+	if (node == nullptr) {
+		return 0;
+	} else if (word == node->word) {
+		return node->count;
+	} else if (word < node->word) {
+		return search(node->left, word);
+	} else {
+		return search(node->right, word);
+	}
 	}
 	void addNode(Node*& node, std::string word) {
 		if (node == nullptr) {
-			node = new Node;
-			node->word = word;
-			node->count = 1;
-			node->left = nullptr;
-			node->right = nullptr;
+		node = new Node;
+		node->word = word;
+		node->count = 1;
+		node->left = nullptr;
+		node->right = nullptr;
 		} else {
-			if (word == node->word) {
-				node->count++;
-			} else if (word < node->word) {
-				addNode(node->left, word);
-			} else {
-				addNode(node->right, word);
-			}
+		if (word == node->word) {
+			node->count++;
+		} else if (word < node->word) {
+			addNode(node->left, word);
+		} else {
+			addNode(node->right, word);
 		}
 	}
+	}
     int depppth(Node* root) {
-		if (root == nullptr) {
-			return 0;
-		}
-		return 1 + std::max(depppth(root->left), depppth(root->right));
+	if (root == nullptr) {
+		return 0;
+	}
+	return 1 + std::max(depppth(root->left), depppth(root->right));
 	}
 };
 
