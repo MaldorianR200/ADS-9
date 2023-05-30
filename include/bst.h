@@ -12,14 +12,14 @@ template <typename Type>
 class BST {
  public:
  struct Node {
-  std::string word;
-  int count;
-  Node* left;
-  Node* right;
- };
- BST() {
-  root = nullptr;
- }
+        std::string word;
+        int count;
+        Node* left;
+        Node* right;
+        };
+    BST() {
+        root = nullptr;
+    }
 
  void addNode(std::string word) {
   addNode(root, word);
@@ -64,7 +64,7 @@ class BST {
 			}
 		}
 	}
-	int depppth(Node* root) {
+    int depppth(Node* root) {
 		if (root == nullptr)
 			return 0;
 		return 1 + std::max(depppth(root->left), depppth(root->right));
