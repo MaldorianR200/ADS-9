@@ -11,10 +11,10 @@ BST<std::string> makeTree(const char* filename) {
     std::string w;
     while (!file.eof()) {
         int ch = file.get();
-        if (ch >= 65 && ch <= 90) {
+        if (ch >= 'A' && ch <= 'Z') {
             ch += 32;
             w += ch;
-        } else if (ch >= 97 && ch <= 122) {
+        } else if (ch >= 'a' && ch <= 'z') {
             w += ch;
         } else {
             TREE.addNode(w);
