@@ -39,6 +39,7 @@ class BST {
             delete node;
         }
     }
+    
  private:
     Node* root;
     int search(Node* node, std::string word) {
