@@ -39,7 +39,7 @@ class BST {
             delete node;
         }
     }
-    private:
+ private:
     Node* root;
     int search(Node* node, std::string word) {
         if (node == nullptr) {
