@@ -51,7 +51,7 @@ class BST {
             return search(node->right, word);
         }
     }
-    void addNode(Node* node, std::string word) {
+    void addNode(const Node*& node, std::string word) {
         if (node == nullptr) {
             node = new Node;
             node->word = word;
