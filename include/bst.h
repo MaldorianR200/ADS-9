@@ -23,8 +23,8 @@ class BST {
     ~BST() {
         destroyTree(root);
     }
-    void addNode(std::string word) {
-        addNode(root, word);
+    void addNode(const Type& word) {
+        root = addNode(root, word);
     }
     int search(std::string word) {
         return search(root, word);
@@ -51,7 +51,7 @@ class BST {
             return search(node->right, word);
         }
     }
-    void addNode(Node*& node, std::string word) {
+    Node* addNode(Node* node, std::string word) {
         if (node == nullptr) {
             node = new Node;
             node->word = word;
@@ -62,11 +62,12 @@ class BST {
             if (word == node->word) {
                 node->count++;
             } else if (word < node->word) {
-                addNode(node->left, word);
+                node->left = addNode(node->left, word);
             } else {
-                addNode(node->right, word);
+                node->right = addNode(node->right, word);
             }
         }
+        return node;
     }
     int depppth(Node* root) {
         if (root == nullptr) {
