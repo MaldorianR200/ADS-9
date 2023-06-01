@@ -62,9 +62,9 @@ class BST {
             if (word == node->word) {
                 node->count++;
             } else if (word < node->word) {
-                addNode(&node->left, word);
+                addNode(node->left, word);
             } else {
-                addNode(&node->right, word);
+                addNode(node->right, word);
             }
         }
     }
